@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_CREDENTIALS_ID = 'dockerhub' // Jenkins credentials ID
-        IMAGE_NAME = 'keerthins123/my-python-app' // Replace with your Docker Hub username
+        IMAGE_NAME = 'keerthins123/my-python-app:latest' // Replace with your Docker Hub username
     }
 
     stages {
@@ -28,7 +28,7 @@ pipeline {
                     // Login to Docker Hub
                     withDockerRegistry(credentialsId: '2969c022-3f74-4d87-a3c9-02cd3a2cfef9', toolName: 'docker') {
                         echo 'Logged in to Docker Hub'
-                        sh 'docker push ${IMAGE_NAME}:latest'
+                        sh 'docker push ${IMAGE_NAME}'
                     }
                 }
             }
